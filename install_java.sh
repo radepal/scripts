@@ -5,14 +5,16 @@
 ##
 ## Date: 03/27/2015
 ## Author: Mike G. aka metalcated and partially forked from n0ts
-## Version: 0.2
+## Author: Radosław P. aka radepal and partially forked from metalcated
+## Version: 0.3
 ##
 ## Changelog: 0.1 - Initial Release
 ##            0.2 - Fixed dupe download issue
+##            0.3 - Fixed dupe download issue
 ##
-## Usage: ./install_java.sh <jre|jdk_version> <rpm|tar>
+## Usage: ./install_java.sh <jre|jdk> <jre|jdk_version> <rpm|tar>
 ##
-## Defaults: jre|jdk_version: 8 / rpm
+## Defaults: jre_version|jdk_version rpm|tar jre|jdk :  8 / rpm / jre
 ##
 ################################################################################
 
@@ -33,6 +35,13 @@ fi
 if [[ -n "$2" ]]; then
   if [[ "$2" == "tar" ]]; then
     EXT="tar.gz"
+  fi
+fi
+
+# set type extention
+if [[ -n "$3" ]]; then
+  if [[ "$3" == "jdk" ]]; then
+    JAVA_TYPE="jdk"
   fi
 fi
 
